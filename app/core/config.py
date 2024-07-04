@@ -1,0 +1,23 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
+# Database configuration
+POSTGRES_HOST = os.getenv("POSTGRES_HOST")
+POSTGRES_PORT = os.getenv("POSTGRES_PORT")
+POSTGRES_ROOT_USERNAME = os.getenv("POSTGRES_ROOT_USERNAME")
+POSTGRES_ROOT_PASSWORD = os.getenv("POSTGRES_ROOT_PASSWORD")
+POSTGRES_DB = os.getenv("POSTGRES_DB")
+POSTGRES_SCHEMA = os.getenv("POSTGRES_SCHEMA")
+
+POSTGRES_DB_CREDS = (
+    f"{POSTGRES_ROOT_USERNAME}:{POSTGRES_ROOT_PASSWORD}@"
+    if POSTGRES_ROOT_USERNAME and POSTGRES_ROOT_PASSWORD
+    else ""
+)
+
+DB_URI = (
+    f"postgresql://{POSTGRES_DB_CREDS}{POSTGRES_HOST}"
+    f":{POSTGRES_PORT}/{POSTGRES_DB}"
+)
