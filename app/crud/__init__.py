@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-
+import bcrypt
 
 class BaseCRUD:
     """
@@ -10,3 +10,13 @@ class BaseCRUD:
         :param session: Database session 
         """
         self.db_session = session
+
+    def generate_hash_for_password(self, password: str):
+        """
+        Method to generate hashed password
+
+        :param password: Password
+        :return str: hashed string 
+        """
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'),bcrypt.gensalt()).decode('utf-8')
+        return hashed_password

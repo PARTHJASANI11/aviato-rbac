@@ -21,3 +21,7 @@ DB_URI = (
     f"postgresql://{POSTGRES_DB_CREDS}{POSTGRES_HOST}"
     f":{POSTGRES_PORT}/{POSTGRES_DB}"
 )
+
+# Others
+HEADER_SECRET_KEY = "Secret-Key"
+HEADER_SECRET_VALUE = os.getenv("HEADER_SECRET_VALUE")
