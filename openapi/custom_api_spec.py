@@ -17,7 +17,8 @@ get_users_responses = {
 
 create_user_responses = {
     status.HTTP_500_INTERNAL_SERVER_ERROR: error_response_500,
-    status.HTTP_409_CONFLICT: error_response_409
+    status.HTTP_409_CONFLICT: error_response_409,
+    status.HTTP_400_BAD_REQUEST: error_response_400
 }
 
 update_user_responses = {
