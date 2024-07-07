@@ -1,0 +1,1 @@
+SEND_EMAIL_TAG = "Email Sending"

@@ -18,13 +18,13 @@ pip3 install pipenv
 Pipenv useful commands
 
 ```
-# Use created virtual env
+# Use python 3.11 in created virtual env
 pipenv --python 3.11
 
 # Install all dependencies:
 pipenv install --dev
 
-# Use created virtualenv
+# Use created virtual env
 pipenv shell
 ```
 

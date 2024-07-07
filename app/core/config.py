@@ -1,5 +1,7 @@
 import os
 from dotenv import load_dotenv
+from fastapi_mail import ConnectionConfig
+import os
 
 load_dotenv(override=True)
 
@@ -20,6 +22,28 @@ POSTGRES_DB_CREDS = (
 DB_URI = (
     f"postgresql://{POSTGRES_DB_CREDS}{POSTGRES_HOST}"
     f":{POSTGRES_PORT}/{POSTGRES_DB}"
+)
+
+# Mail configuration
+MAIL_USERNAME = os.getenv("MAIL_USERNAME")
+MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
+MAIL_FROM = os.getenv("MAIL_FROM")
+MAIL_PORT = 587
+MAIL_SERVER = "smtp.gmail.com"
+USE_CREDENTIALS = True
+MAIL_STARTTLS = True
+MAIL_SSL_TLS = False
+TEMPLATES_DIR = f"{os.getcwd()}/email_templates"
+
+MAIL_CONF = ConnectionConfig(
+    MAIL_USERNAME = MAIL_USERNAME,
+    MAIL_PASSWORD = MAIL_PASSWORD,
+    MAIL_FROM = MAIL_FROM,
+    MAIL_PORT = MAIL_PORT,
+    MAIL_SERVER = MAIL_SERVER,
+    USE_CREDENTIALS = USE_CREDENTIALS,
+    MAIL_STARTTLS = MAIL_STARTTLS,
+    MAIL_SSL_TLS = MAIL_SSL_TLS
 )
 
 # Others
