@@ -1,5 +1,5 @@
 from pydantic import BaseModel, constr, field_validator, validate_email
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 from enum import Enum
 import re
 from datetime import date
@@ -124,3 +124,20 @@ class DeleteUserResponse(BaseModel):
     """
     id: int
     email: str
+
+class CreateUserRequestV2Enum(str, Enum):
+    """
+    Request payload to create user V2 
+    """
+    EMAIL = "email"
+    PASSWORD = "password"
+    MOBILE_NO = "mobile_no"
+
+class GetUserResponseV2(BaseModel):
+    """
+    Get users response V2
+    """
+    users: List[Dict]
+    total_users: int
+    page_size: int
+    page_number: int

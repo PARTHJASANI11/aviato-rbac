@@ -2,7 +2,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse
 from fastapi import Request, HTTPException, status
 from app.core.logger import logger
-from app.api import CREATE_USER_ENDPOINT, API_PREFIX
+from app.api import CREATE_USER_ENDPOINT, API_PREFIX, CREATE_USER_ENDPOINT_V2
 from app.middleware import middleware_helper
 from app.core.config import HEADER_SECRET_KEY, HEADER_SECRET_VALUE
 
@@ -13,7 +13,8 @@ EXCLUDE_VERIFICATION_ENDPOINTS = {
         "/openapi.json"
     ],
     "POST": [
-        f"{API_PREFIX}{CREATE_USER_ENDPOINT}"
+        f"{API_PREFIX}{CREATE_USER_ENDPOINT}",
+        f"{API_PREFIX}{CREATE_USER_ENDPOINT_V2}"
     ],
 }
 

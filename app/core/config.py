@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from fastapi_mail import ConnectionConfig
-import os
 
 load_dotenv(override=True)
 
@@ -49,3 +48,5 @@ MAIL_CONF = ConnectionConfig(
 # Others
 HEADER_SECRET_KEY = "Secret-Key"
 HEADER_SECRET_VALUE = os.getenv("HEADER_SECRET_VALUE")
+SERVICE_ACCOUNT_KEY_FILE_PATH = os.getenv("SERVICE_ACCOUNT_KEY_FILE_PATH")
+USER_COLLECTION_NAME = "aviato-users"

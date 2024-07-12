@@ -11,7 +11,8 @@ class BaseCRUD:
         """
         self.db_session = session
 
-    def generate_hash_for_password(self, password: str):
+    @staticmethod
+    def generate_hash_for_password(password: str):
         """
         Method to generate hashed password
 
